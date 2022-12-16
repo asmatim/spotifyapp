@@ -62,7 +62,7 @@ exports.delete = async (req, res, next) => {
         console.log(deletedUser);
 
         if (deletedUser.deletedCount == 1) {
-            return res.status(201).json({ message: "Votre profil is deleted!" });
+            return res.status(201).json({ message: "Your account is deleted!" });
         }
 
     } catch (error) {

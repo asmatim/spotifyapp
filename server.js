@@ -11,6 +11,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 const userRouter = require('./routes/users');
+const songRouter = require('./routes/songs');
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/spotifydb", { useNewUrlParser: true});
@@ -27,5 +28,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use("/api/user", userRouter);
+app.use("/api/song", songRouter)
 
 app.listen(port, () => console.log(`[ Server ] is running on: ${port}`));

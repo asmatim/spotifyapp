@@ -1,6 +1,7 @@
 const { mongoose, Schema } = require('mongoose');
 
-const NORMAL = "normal";
+const USER_TYPE = 2;
+const ARTIST_TYPE = 1;
 
 const userSchema = new Schema({
     firstName: {
@@ -21,9 +22,9 @@ const userSchema = new Schema({
         required: true
     },
     role: {
-        default: NORMAL,
+        default: USER_TYPE,
         required: true,
-        type: String,
+        type: Number,
     },
 })
 

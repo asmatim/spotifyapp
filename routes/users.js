@@ -1,12 +1,13 @@
 var express = require('express');
 var userRouter = express.Router();
 const userController = require("../controllers/userController");
+const validateUser = require("../middlewares/user/userValidation");
 
 /* GET users listing. */
 userRouter.get('/', userController.index);
 
 /* POST user */
-userRouter.post("/add", userController.store);
+userRouter.post("/add", validateUser , userController.store);
 
 /* GET user By id. */
 userRouter.get("/:id", userController.show);
