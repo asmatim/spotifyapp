@@ -18,4 +18,7 @@ userRouter.put("/edit/:id", userController.update);
 /* DELETE user */
 userRouter.delete("/delete/:id", userController.delete);
 
+/* GET user playlist By user id. */
+userRouter.get("/:id/playlist", userController.playlist);
+
 module.exports = userRouter;

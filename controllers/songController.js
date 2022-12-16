@@ -1,10 +1,9 @@
 const Song = require("../models/song");
-const User = require("../models/song");
 
 exports.index = async (req, res, next) => {
     try {
-        const song = await Song.find();
-        res.json(song);
+        const songs = await Song.find();
+        res.json(songs);
     } catch (error) {
         next(error);
     }

@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Playlist = require("../models/playlist");
 
 exports.index = async (req, res, next) => {
     try {
@@ -28,6 +29,19 @@ exports.show = async (req, res, next) => {
             return res.status(404).send("User not found");
         }
         res.json(user);
+
+    } catch (error) {
+        next(error);
+    }
+}
+
+exports.playlist = async (req, res, next) => {
+    try {
+        const playlist = await Playlist.find({ user: req.params.id });
+        if (!playlist) {
+            return res.status(404).send("User have no playlist");
+        }
+        res.json(playlist);
 
     } catch (error) {
         next(error);

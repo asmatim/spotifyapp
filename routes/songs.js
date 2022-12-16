@@ -3,19 +3,19 @@ var songRouter = express.Router();
 const songController = require("../controllers/songController");
 const validateSong = require("../middlewares/song/songValidation");
 
-/* GET users listing. */
+/* GET songs listing. */
 songRouter.get('/', songController.index);
 
-/* POST user */
+/* POST song */
 songRouter.post("/add", validateSong, songController.store);
 
-/* GET user By id. */
+/* GET song By id. */
 songRouter.get("/:id", songController.show);
 
-/* UPDATE user */
+/* UPDATE song */
 songRouter.put("/edit/:id", songController.update);
 
-/* DELETE user */
+/* DELETE song */
 songRouter.delete("/delete/:id", songController.delete);
 
 module.exports = songRouter;
